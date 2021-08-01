@@ -10,7 +10,7 @@ function Signup({navigation}){
             <SignupForm/>
             <TouchableOpacity onPress={()=>navigation.goBack()}>
                 <Text>
-                    Already got a an account? 
+                    Already got an account? 
                     <Text style={styles.signin}> Sign in</Text>
                 </Text>
             </TouchableOpacity>
