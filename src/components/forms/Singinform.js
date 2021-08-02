@@ -1,8 +1,10 @@
-import React, {useState} from "react";
+import React, {useContext,useState} from "react";
 import {StyleSheet, View } from "react-native";
-import {Button, Caption, Text, TextInput} from "react-native-paper";
+import {Button, Caption, TextInput} from "react-native-paper";
+import { Context as AuthContext } from "../../providers/AuthContext";
 
 function SigninForm(){
+    const { state, signin } = useContext(AuthContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [emailError, setEmailError] = useState(false);
@@ -15,7 +17,11 @@ function SigninForm(){
         }else if(input == "password"){
             if(!password) setPasswordError(true);
             else setPasswordError(false);
-        }
+        }else if (input === "signin") {
+            if (email && password && !emailError && !passwordError) {
+              signin(email, password);
+            }
+          }
     }
 
     return(
@@ -45,7 +51,7 @@ function SigninForm(){
                 <Caption>Password is required</Caption>
             )}
             <Button mode="contained"
-            onPress={()=> handleVerify("email")}
+            onPress={()=> handleVerify("signin")}
             style={styles.btn}>Sign In</Button>
 
         </View>
