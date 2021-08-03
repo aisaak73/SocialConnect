@@ -16,6 +16,7 @@ function CreateNote({ navigation }) {
   function handleSave() {
     createNote(noteName, text, timestamp, state.user.id);
     console.log(noteName);
+    navigation.goBack();
    /* if (noteName) {
       createNote(noteName, timestamp, state.usersRef.id);
     } else {
@@ -44,12 +45,14 @@ function CreateNote({ navigation }) {
         <View style={styles.iconBar}>
             <IconButton
             icon="close-circle-outline"
-            color={theme.colors.primary}
+            color={theme.colors.red}
+            size={50}
             onPress={() => navigation.goBack()}
             />
             <IconButton
             icon="check-circle-outline"
             color={theme.colors.primary}
+            size={50}
             onPress={() => handleSave()}
             />
       </View>
@@ -65,7 +68,7 @@ const styles = StyleSheet.create({
   },
   iconBar: {
     flexDirection: "row",
-    justifyContent: "flex-end",
+    justifyContent: "center",
   },
   txt:{
     marginTop: 15,

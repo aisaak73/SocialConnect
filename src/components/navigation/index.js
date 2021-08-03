@@ -7,6 +7,7 @@ import Signin from "../screens/Signin";
 import Signup from "../screens/Signup";
 import Home from "../screens/Home";
 import CreateNote from "../screens/CreateNote";
+import ReadNote from "../screens/ReadNote";
 
 const Stack = createStackNavigator();
 
@@ -32,6 +33,7 @@ function Navigation() {
             <Stack.Navigator>
               <Stack.Screen name="Home" component={Home} />
               <Stack.Screen name="CreateNote" component={CreateNote}/>
+              <Stack.Screen name="ReadNote" component={ReadNote}/>
             </Stack.Navigator>
           ) : (
             <Stack.Navigator screenOptions={{ headerShown: false }}>

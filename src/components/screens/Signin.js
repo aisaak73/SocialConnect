@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import {Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import { Text } from "react-native-paper";
 import SigninForm from "../forms/Singinform";
 import theme from "../../themes";
@@ -8,8 +8,9 @@ function Signin({navigation}){
     return (
         
         <View style={styles.container}>
-            
-            <Text style={styles.title}>Sign In</Text>
+
+            <Image source={require('../../utils/imgs/notes.png')} style={styles.img}/> 
+            <Text style={styles.title}>Welcome to NOTXS</Text>
             <SigninForm/>
             <Text style={styles.forgotPass}>Forgot your password?</Text>
             <Text>Don't have an account?
@@ -28,9 +29,17 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         margin: 10,
     },
+    img:{
+        width: 90,
+        height: 90,
+        alignSelf: "center",
+        marginBottom: 15,       
+      },
     title:{
         margin: 10,
-        fontSize: 20,
+        fontSize: 35,
+        fontWeight: "500",
+        color: theme.colors.primary,
         textAlign: "center",
     },
     forgotPass:{
